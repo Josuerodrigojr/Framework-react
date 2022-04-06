@@ -8,7 +8,7 @@ console.log("Composição de função")
  let a = [1, 2, 3, 4, 5]
  .filter(o => o != 2)
  .map(o => o + 1)
- .map(o => o+9)
+ .map(o => o + 9)
 
  console.log(a)
 
