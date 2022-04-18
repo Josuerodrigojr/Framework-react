@@ -7,6 +7,8 @@ import Count2 from "../../components/Count2";
 import { Table } from "react-bootstrap";
 import { CustomCol } from "../../components/Button";
 import { useProdutos } from "../../contexts/Produtos";
+let teste = [];
+teste = ["Um", "dois", 'tres', "quatro"]
 
 const Home = () => {
   const [produtos, setProdutos] = useProdutos()
@@ -15,23 +17,30 @@ const Home = () => {
 
   const usuarios = [
     {
-      id: 1,
+      id: teste[0],
       nome: "Mark",
       sobrenome: "Otto",
       usuario: "@mdo",
     },  {
-      id: 2,
+      id: teste[1],
       nome: "Josue",
+      sobrenome: "Rodrigo",
+      usuario: "@jr",
+    }, {
+      id: teste[3],
+      nome: "Josue Teste",
       sobrenome: "Rodrigo",
       usuario: "@jr",
     }
   ];
+  
+  
 
   const montarLista = (id, nome, sobrenome, usuario) => {
     return (
       <tr key={id}>
 
-        <td>{id}</td>
+        <td><Link to={`/produtos/${id}`}>{id}</Link></td>
         <td>{nome}</td>
         <td>{sobrenome}</td>
         <td>{usuario}</td>
@@ -40,25 +49,11 @@ const Home = () => {
     )
   }
 
+ 
+
   return (
     <>
-      <CustomCol>
-        <span>Oi oi oi oi span</span>
-      </CustomCol>
-
-      <CountProvider>
-        <Link to="/produtos">Go produtos sem parametros</Link>
-        <br />
-        <Link to={`/produtos/${1}`}>Go produtos com parametros</Link>
-
-        <Count />
-
-        <hr />
-
-        <Count2 />
-
-        <hr />
-
+     
         <Table striped bordered hover>
           <thead>
             <tr>
@@ -69,12 +64,12 @@ const Home = () => {
             </tr>
           </thead>
           <tbody>
-            {usuarios.map(usuario => 
-              montarLista(usuario.id, usuario.nome, usuario.sobrenome, usuario.usuario)
+            {usuarios.map(x => 
+              montarLista(x.id, x.nome, x.sobrenome, x.usuario)
             )}
           </tbody>
         </Table>
-      </CountProvider>
+
     </>
   );
 };

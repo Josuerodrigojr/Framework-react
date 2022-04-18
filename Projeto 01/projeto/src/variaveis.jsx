@@ -3,7 +3,7 @@ import React, { createContext, useState, useContext } from "react";
 const ProdutoContext = createContext();
 
 export default function ProdutoProvider({ children }) {
-  const [produtos, setProdutos] = useState([]);
+  const [produtos, setProdutos] = useState({});
 
   return (
     <ProdutoContext.Provider value={{ produtos, setProdutos }}>

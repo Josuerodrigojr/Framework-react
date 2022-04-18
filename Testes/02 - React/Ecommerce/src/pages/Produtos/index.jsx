@@ -6,7 +6,7 @@ import { useProdutos } from "../../contexts/Produtos";
 const ProdutoEdit = (props) => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const [produtos, setProdutos] = useProdutos("")
+  const [produtos, setProdutos] = useProdutos()
 
   // Aqui pegamos o parametro. Observe que o nome da propriedade é o mesmo da definidada na rota.
   let { id } = useParams();
