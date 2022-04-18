@@ -25,7 +25,9 @@ export const Template = (props) =>{
         {props.children}
     </main>
 
-    <footer><h1>Teste de rodapé</h1></footer>
+    <footer><h1>Squad:</h1>
+    <p>Grupo cinza</p>
+    </footer>
     
     </>
     );

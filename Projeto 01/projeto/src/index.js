@@ -20,7 +20,7 @@ root.render(
           <Route path="/cadastrar" element={<App />} />
           <Route path="/produto" element={<Teste />} />
           <Route path="/produto/:id" element={<Teste />} />
-          <Route path="/produto/-1" element={<Erro />} />
+          <Route path="/produto/0" element={<Erro />} />
         </Routes>
       </Template>
     </ProdutoProvider>

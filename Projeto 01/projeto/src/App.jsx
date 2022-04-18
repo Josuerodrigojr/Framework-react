@@ -8,10 +8,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import logo2 from "./prada.webp";
 
 let id = 0;
-let titulo2 = [];
-let preco2 = [];
-let informacao2 = [];
-let dimensao2 = [];
+let arrayDeTitulos = [];
+let arrayDePrecos = [];
+let arrayDeInformacao = [];
+let arrayDimensao = [];
 
 
 function App() {
@@ -21,29 +21,22 @@ function App() {
   const [dimensao, setDimensao] = useState(0);
   const [fotos, setFotos] = useState('');
   const [produtos, setProdutos] = useProdutos("");
-  const [busca, setBusca] = useState(" ");
 
 
   const Salvar = (event) => {
     event.preventDefault();
 
-    titulo2.push(titulo);
-    preco2.push(preco);
-    informacao2.push(informacao);
-    dimensao2.push(dimensao);
-
-    console.log("Titulo do botao", titulo2);
+    arrayDeTitulos.push(titulo);
+    arrayDePrecos.push(preco);
+    arrayDeInformacao.push(informacao);
+    arrayDimensao.push(dimensao);
 
     setProdutos({
-      titulo2,
-      preco2,
-      informacao2,
-      dimensao2,
+      arrayDeTitulos,
+      arrayDePrecos,
+      arrayDeInformacao,
+      arrayDimensao,
     });
-    console.log(fotos);
-    id = id + 1;
-
-    console.log(fotos);
 
   };
 
