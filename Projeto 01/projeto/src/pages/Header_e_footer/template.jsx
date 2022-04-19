@@ -1,5 +1,5 @@
 import { Navbar, Container, Row } from "react-bootstrap";
-import logo from "./Imagens/logo.png";
+import logo from "../../Imagens/logo.png";
 
 
 export const Template = (props) =>{

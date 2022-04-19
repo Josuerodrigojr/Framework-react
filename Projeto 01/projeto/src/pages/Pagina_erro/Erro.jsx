@@ -1,5 +1,5 @@
-import {Container, Row, Col, Stack, Button} from 'react-bootstrap'
-import {Coluna} from './components/Edição/style'
+import {Container, Row, Stack, Button} from 'react-bootstrap'
+import {Coluna} from '../../components/Edição/style'
 import {Link} from 'react-router-dom'
 
 export const Erro = () => {

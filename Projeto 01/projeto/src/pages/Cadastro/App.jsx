@@ -1,11 +1,11 @@
-import "./App.css";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import "../../App.css";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Container, Row, Col, Form } from "react-bootstrap";
-import { Botao, Coluna } from "./components/Edição/style";
-import { useProdutos } from "./variaveis";
+import { Botao, Coluna } from "../../components/Edição/style";
+import { useProdutos } from "../Armazenar_produtos/variaveis";
 import "bootstrap/dist/css/bootstrap.min.css";
-import logo2 from "./prada.webp";
+
 
 let id = 0;
 let titulosDosProdutos = [];
@@ -39,6 +39,7 @@ function App() {
       informacoesDosProdutos,
       dimensoesDosProdutos,
     });
+    
     id = id + 1;
     navigate('/');
     

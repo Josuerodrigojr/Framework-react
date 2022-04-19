@@ -1,8 +1,8 @@
 
-import './App.css';
-import { Link, useParams } from "react-router-dom";
-import {Container, Row, Col, Form, Button, Table} from 'react-bootstrap'
-import { useProdutos } from './variaveis';
+import '../../App.css';
+import {useParams } from "react-router-dom";
+import {Container, Row, Col } from 'react-bootstrap'
+import { useProdutos } from '../Armazenar_produtos/variaveis';
 
 
 

@@ -1,10 +1,10 @@
-import { Link, useParams } from "react-router-dom";
-import React, {useMemo, useState} from "react";
-import { Botao, Coluna } from "./components/Edição/style";
-import logo from "./Imagens/logo.png";
-import { Container, Row, Col, Navbar, Button, Card, Form } from "react-bootstrap";
-import { useProdutos } from "./variaveis";
-import { App } from "./App";
+import { Link, } from "react-router-dom";
+import React, {useState} from "react";
+import { Botao, Coluna } from "../../components/Edição/style";
+import logo from "../../Imagens/prada.webp";
+import { Container, Row, Button, Card, Form } from "react-bootstrap";
+import { useProdutos } from "../Armazenar_produtos/variaveis";
+
 let id = 0;
 let nomeDoProduto = 0;
 let id$NomeDoProduto = [
@@ -65,6 +65,7 @@ export const Home = () => {
           <Link to={`/produto/${id}`}>
             <Card.Img variant="top" src={logo} />
           </Link>
+          <Link class="text-decoration-none text-dark" style={{textAlign:"Left", paddingLeft:"10px"}}to={`/cadastrar/${id}`}>Editar</Link>
           <Card.Body>
             <Card.Title>{nomeDoProduto}</Card.Title>
           </Card.Body>
