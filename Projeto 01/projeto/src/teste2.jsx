@@ -12,38 +12,35 @@ const [produtos, setProdutos] = useProdutos()
 
 let { id } = useParams();
 
-  console.log("id", id);
 
-
-// console.log(produtos[0].titulo)
 return <>
 <Container>
   <br/>
   
   <Row>
     <Col>
-    Titulo:{ " " + produtos.titulo2[id -1]}
+    Titulo:{ " " + produtos.titulosDosProdutos[id -1]}
     </Col>
   </Row>
   <br/>
 
   <Row>
     <Col>
-    Preço: {"R$" + " " + produtos.preco2[id -1] + ",00"} 
+    Preço: {"R$" + " " + produtos.precosDosProdutos[id -1] + ",00"} 
     </Col>
   </Row>
   <br/>
 
   <Row>
     <Col>
-    Informações/Descrição: {produtos.informacao2[id -1]}
+    Informações/Descrição: {produtos.informacoesDosProdutos[id -1]}
     </Col>
   </Row>
   <br/>
 
   <Row>
     <Col>
-    Dimensão: {produtos.dimensao2[id -1]}
+    Dimensão: {produtos.dimensoesDosProdutos[id -1]}
     </Col>
   </Row>
 </Container>

@@ -1,123 +1,135 @@
 import { Link, useParams } from "react-router-dom";
-import React, { useMemo, useState } from "react";
+import React, {useMemo, useState} from "react";
 import { Botao, Coluna } from "./components/Edição/style";
-import { Teste } from "./teste2";
-import logo from "./prada.webp";
-import {
-  Container,
-  Row,
-  Col,
-  Navbar,
-  Button,
-  Card,
-  Form,
-} from "react-bootstrap";
+import logo from "./Imagens/logo.png";
+import { Container, Row, Col, Navbar, Button, Card, Form } from "react-bootstrap";
 import { useProdutos } from "./variaveis";
 import { App } from "./App";
 let id = 0;
-let nomeProduto = 0;
-let cards = [
+let nomeDoProduto = 0;
+let id$NomeDoProduto = [
   {
     id: "",
-    nomeProduto: "",
+    nomeDoProduto: "",
   },
 ];
 let erro = -2;
-let identificacaoProdutos = [];
+let indiceDaPagina= [];
+
 
 // console.log(teste)
 export const Home = () => {
   const [produtos, setProdutos] = useProdutos();
   const [busca, setBusca] = useState("");
+  const [bolsas, setBolsas] = useState([]);
+  
 
-  if (produtos.arrayDeTitulos === undefined) {
+  if (produtos.titulosDosProdutos === undefined) {
     id = 0;
   } else {
-    id = produtos.arrayDeTitulos.length;
-    nomeProduto = produtos.arrayDeTitulos[id - 1];
 
-    cards = [
+    id = produtos.titulosDosProdutos.length;
+    nomeDoProduto = produtos.titulosDosProdutos[id - 1];
+
+    id$NomeDoProduto = [
       {
         id: id,
-        nomeProduto: nomeProduto,
+        nomeDoProduto: nomeDoProduto,
       },
     ];
+    
+
+    
 
     for (let index = 1; index < id; index++) {
-      nomeProduto = produtos.arrayDeTitulos[index - 1];
-      cards.push({
+      nomeDoProduto = produtos.titulosDosProdutos[index - 1];
+      id$NomeDoProduto.push({
         id: index,
-        nomeProduto: nomeProduto,
+        nomeDoProduto: nomeDoProduto,
       });
+      
+      
+      
     }
+
+
+    
+
   }
 
-  const montarLista = (id, nomeProduto) => {
+  const montarLista = (id, nomeDoProduto) => {
+    if (id!=0){
     return (
-      <Col>
+      <Coluna tamanho={4}>
         <Card style={{ width: "15rem" }}>
           <Link to={`/produto/${id}`}>
             <Card.Img variant="top" src={logo} />
           </Link>
           <Card.Body>
-            <Card.Title>{nomeProduto}</Card.Title>
+            <Card.Title>{nomeDoProduto}</Card.Title>
           </Card.Body>
         </Card>
-      </Col>
-    );
+      </Coluna>
+    )};
   };
 
-  identificacaoProdutos = [];
+  indiceDaPagina= [];
   for (let index = 1; index <= id; index++) {
-    identificacaoProdutos.push(produtos.arrayDeTitulos[index - 1]);
+
+    indiceDaPagina.push(produtos.titulosDosProdutos[index - 1])
   }
 
-  const Clicar = (event) => {
-    event.preventDefault();
-  };
+const Clicar = (event) =>{
+  event.preventDefault();
+  
+  
+
+}
+
+
 
   return (
     <>
-      <Form onSubmit={Clicar}>
-        <Container>
-          <Row>
-            <Coluna align="right">
+    <Form onSubmit={Clicar}>
+    <Container>
+      <Row>
+        <Coluna align="right">
               <input
                 type="text"
                 value={busca}
                 onChange={(event) => setBusca(event.target.value)}
+        
               />
-              <br />
+              
 
-              <br />
+              <br/>
 
-              <Link
-                to={`/produto/${
-                  identificacaoProdutos.indexOf(busca.toString()) + 1
-                }`}
-              >
-                <Button type="submit">Buscar</Button>
-              </Link>
-            </Coluna>
-          </Row>
-        </Container>
+              <br/>
+              
+            <Link to={`/produto/${indiceDaPagina.indexOf(busca.toString()) + 1}`}><Button type="submit">Buscar</Button></Link>
 
-        <br />
 
-        <Container>
-          <Row>
-            <Coluna align="right">
-              <Link to="/cadastrar">
-                <Botao texto="Cadastrar" cor="orange" />
-              </Link>
-            </Coluna>
-          </Row>
-        </Container>
+        </Coluna>
+      </Row>
+    </Container>
+
+<br/>
+
+
+      <Container>
+        <Row>
+          <Coluna align="right">
+            <Link to="/cadastrar">
+              <Botao texto="Cadastrar" cor="orange" />
+            </Link>
+          </Coluna>
+        </Row>
+      </Container>
       </Form>
 
       <br />
       <Container>
-        <Row>{cards.map((x) => montarLista(x.id, x.nomeProduto))}</Row>
+        <Row>{id$NomeDoProduto.map((x) => montarLista(x.id, x.nomeDoProduto))}</Row>
       </Container>
     </>
   );

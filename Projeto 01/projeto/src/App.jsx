@@ -1,5 +1,5 @@
 import "./App.css";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Container, Row, Col, Form } from "react-bootstrap";
 import { Botao, Coluna } from "./components/Edição/style";
@@ -8,10 +8,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import logo2 from "./prada.webp";
 
 let id = 0;
-let arrayDeTitulos = [];
-let arrayDePrecos = [];
-let arrayDeInformacao = [];
-let arrayDimensao = [];
+let titulosDosProdutos = [];
+let precosDosProdutos = [];
+let informacoesDosProdutos = [];
+let dimensoesDosProdutos = [];
 
 
 function App() {
@@ -21,22 +21,29 @@ function App() {
   const [dimensao, setDimensao] = useState(0);
   const [fotos, setFotos] = useState('');
   const [produtos, setProdutos] = useProdutos("");
-
+  const [busca, setBusca] = useState(" ");
+  const navigate = useNavigate();
+  
 
   const Salvar = (event) => {
     event.preventDefault();
 
-    arrayDeTitulos.push(titulo);
-    arrayDePrecos.push(preco);
-    arrayDeInformacao.push(informacao);
-    arrayDimensao.push(dimensao);
+    titulosDosProdutos.push(titulo);
+    precosDosProdutos.push(preco);
+    informacoesDosProdutos.push(informacao);
+    dimensoesDosProdutos.push(dimensao);
 
     setProdutos({
-      arrayDeTitulos,
-      arrayDePrecos,
-      arrayDeInformacao,
-      arrayDimensao,
+      titulosDosProdutos,
+      precosDosProdutos,
+      informacoesDosProdutos,
+      dimensoesDosProdutos,
     });
+    id = id + 1;
+    navigate('/');
+    
+    // const produto = { id: 1, titulo: '', preco: 0 }
+    // setProdutos([...produtos, produto])
 
   };
 
@@ -55,7 +62,7 @@ function App() {
                   placeholder="Digite o nome do produto"
                   onChange={(event) => {
                     setTitulo(event.target.value);
-                    console.log(titulo);
+
                   }}
                 />
               </Col>

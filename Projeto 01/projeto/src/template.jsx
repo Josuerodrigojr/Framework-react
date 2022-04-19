@@ -1,5 +1,5 @@
-import { Navbar, Container } from "react-bootstrap";
-import logo from './prada.webp';
+import { Navbar, Container, Row } from "react-bootstrap";
+import logo from "./Imagens/logo.png";
 
 
 export const Template = (props) =>{
@@ -7,7 +7,7 @@ export const Template = (props) =>{
     <header>
         
     
-    <Navbar bg='light' variant="light">
+    <Navbar bg='light' variant="dark">
           <Container>
             <Navbar.Brand href="/">
               <img
@@ -24,9 +24,21 @@ export const Template = (props) =>{
     <main> 
         {props.children}
     </main>
-
-    <footer><h1>Squad:</h1>
-    <p>Grupo cinza</p>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+    <footer> 
+      <Container>
+        <Row>
+        Luxuosa e chique, ela gera cobiça na cabeça das mulheres de todos os países, fazendo com que o desejo de obter suas roupas ultrapassem gerações. Podemos dizer que a marca é uma verdadeira joia das Maison mundiais.
+        </Row>
+      </Container>
+      
     </footer>
     
     </>
